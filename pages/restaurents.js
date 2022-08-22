@@ -1,11 +1,13 @@
 import Restaurents from '../components/Restaurents';
 import Layout from '../components/Layout';
 import { fetcher } from '../lib/api';
+import http from '../components/http';
 // import useSWR from 'swr';
 // import { useState } from 'react';
 // import { useFetchUser } from '../lib/authContext';
 
 const RestaurentsList = ({ restaurents }) => {
+  debugger
   // const { user, loading } = useFetchUser();
   // const [pageIndex, setPageIndex] = useState(1);
   // const { data } = useSWR(
@@ -55,10 +57,18 @@ const RestaurentsList = ({ restaurents }) => {
 
 export default RestaurentsList;
 
-export async function getStaticProps() {
-  const restaurentsResponse = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/restaurents`);
-    console.log(restaurentsResponse)
+export async function getServerSideProps() {
+  let restaurentsResponse = [];
+  await
+  http
+        .get("/api/restaurents")
+        .then((res) => {
+          console.log(res.data)
+          if(res.data) {
+            restaurentsResponse = res.data;
+          }
+          
+        })
   return {
     props: {
       restaurents: restaurentsResponse,
