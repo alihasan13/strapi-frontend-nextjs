@@ -6,8 +6,8 @@ import http from '../components/http';
 // import { useState } from 'react';
 // import { useFetchUser } from '../lib/authContext';
 
-const RestaurentsList = ({ restaurents }) => {
-  debugger
+export default function RestaurentsList ({ restaurents }) {
+  
   // const { user, loading } = useFetchUser();
   // const [pageIndex, setPageIndex] = useState(1);
   // const { data } = useSWR(
@@ -54,8 +54,6 @@ const RestaurentsList = ({ restaurents }) => {
     </Layout>
   );
 };
-
-export default RestaurentsList;
 
 export async function getServerSideProps() {
   let restaurentsResponse = [];

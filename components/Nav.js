@@ -55,7 +55,7 @@ const Nav = () => {
             {/* eslint-disable @next/next/no-img-element */}
             <img
               className="m-3"
-              src="/strapi-logo.png"
+              src="/logo.png"
               width={200}
               height={50}
               alt="Strapi Logo"
